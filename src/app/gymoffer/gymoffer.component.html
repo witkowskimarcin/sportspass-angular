@@ -1,0 +1,36 @@
+<h2>Edit</h2>
+<div *ngIf="form!=null">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" formControlName="description" />
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" formControlName="location" />
+    </div>
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input type="text" formControlName="street" />
+    </div>
+
+    <button type="submit" [disabled]="form.invalid" class="btn btn-success">Edit</button>
+  </form>
+</div>
+
+<ul>
+Details<br><br>
+    <li *ngFor="let o of gymOfferDetails">
+        ID: {{o.id}}<br>
+        Nazwa: <a class="btn" routerLink="/brand/{{bid}}/offer/{{id}}/detail/{{o.id}}/edit" class="btn btn-link">{{o.text}}</a><br>
+        Opis: {{o.description}}<br>
+        Liczba miesięcy: {{o.months}}<br>
+        Cena: {{o.price}}<br>
+      <button (click)="delete(o.id)">Usuń</button><br><br>
+    </li>
+</ul>
+
+<a class="btn" routerLink="/brand/{{bid}}/offer/{{id}}/detail/add" class="btn btn-link">Add</a><br>
+
+<a class="btn" routerLink="/brand/{{bid}}/offers" class="btn btn-link">Back</a><br>

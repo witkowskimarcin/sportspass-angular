@@ -1,0 +1,11 @@
+<ul>
+Brands<br><br>
+    <li *ngFor="let b of brands">
+        ID: {{b.id}}<br>
+        Nazwa: <a class="btn" routerLink="/brand/{{b.id}}/offers" class="btn btn-link">{{b.name}}</a><br>
+      <img src="data:image/jpeg;base64,{{b.image}}"/>
+    </li>
+</ul>
+
+<a class="btn" routerLink="/brand/add" class="btn btn-link">Add</a><br>
+<a class="btn" routerLink="" class="btn btn-link">Back</a><br>

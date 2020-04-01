@@ -1,0 +1,26 @@
+<h2>Edit</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="text">text</label>
+    <input type="text" formControlName="text" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label for="price">price</label>
+    <input type="number" formControlName="price" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label for="months">months</label>
+    <input type="number" formControlName="months" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <label for="description">description</label>
+    <input type="text" formControlName="description" class="form-control"/>
+  </div>
+
+  <!--    <div class="form-group">-->
+  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Edit</button>
+  <!--    </div>-->
+</form>
+
+<a class="btn" routerLink="/brand/{{bid}}/offer/{{oid}}/details" class="btn btn-link">Back</a><br>

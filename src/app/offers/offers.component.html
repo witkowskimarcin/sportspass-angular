@@ -1,0 +1,31 @@
+<h2>Edit</h2>
+<div *ngIf="form!=null">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" formControlName="name" />
+    </div>
+    <img src="data:image/jpeg;base64,{{brand.image}}"/>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input formControlName="image" type="file" (change)="onFileChange($event)">
+    </div>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-success">Edit</button>
+  </form>
+</div>
+<br>
+
+<ul>
+Offers<br><br>
+    <li *ngFor="let o of gymOffers">
+        ID: {{o.id}}<br>
+        Opis: <a class="btn" routerLink="/brand/{{bid}}/offer/{{o.id}}/details" class="btn btn-link">{{o.description}}</a><br>
+        Lokalizacja: {{o.location}}<br>
+        Ulica: {{o.street}}<br>
+      <button (click)="delete(o.id)">Usuń</button><br><br>
+    </li>
+</ul>
+
+<a class="btn" routerLink="/brand/{{bid}}/offer/add" class="btn btn-link">Add</a><br>
+
+<a class="btn" routerLink="/brands" class="btn btn-link">Back</a><br>
